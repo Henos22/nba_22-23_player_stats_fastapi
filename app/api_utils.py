@@ -188,7 +188,7 @@ def delete_players(first_name: str, surname: str) -> dict:
     players = player_profiles
     
     for player in players.copy():
-        if player.get('first_name') == first_name and player.get('surname') == surname:
+        if player.get('first_name').lower() == first_name and player.get('surname').lower() == surname:
             players.remove(player)
     return f"{first_name} {surname}'s bio has been deleted!"
 
