@@ -7,7 +7,7 @@ def load_nba_data() -> pd.DataFrame:
     Returns:
         pd.DataFrame: stats for the 22/23 season
     """
-    return pd.read_csv('22:23_player_stats.csv')
+    return pd.read_csv("season_stats.csv")
 
 def create_player_bio_dict(player:pd.DataFrame) -> dict:
     """Formats data that would be present in a player's bio

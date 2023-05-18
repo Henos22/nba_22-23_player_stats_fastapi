@@ -1,8 +1,6 @@
 from fastapi import FastAPI
 
-from api_utils import (delete_players, player_profiles,#change_players_team,
-                       player_profiles_by_name, players_defense,
-                       players_offense)
+from .api_utils import delete_players, player_profiles, player_profiles_by_name
 
 app = FastAPI()
 

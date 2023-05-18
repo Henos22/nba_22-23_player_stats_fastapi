@@ -1,15 +1,11 @@
 FROM python:3.10
-ENV APP_HOME /app
-WORKDIR $APP_HOME
+WORKDIR /code
 
-ADD requirements.txt ./
+COPY ./requirements.txt /code/requirements.txt
+COPY ./season_stats.csv /code/season_stats.csv
 
 RUN pip install -r requirements.txt
 
-COPY . .
+COPY ./app /code/app
 
-ENV PYTHONUNBUFFERED True
-
-EXPOSE 80
-
-CMD [uvicorn,main.py,--reload]
+CMD ["uvicorn","app.main:app", "--host", "0.0.0.0", "--port", "80"]
