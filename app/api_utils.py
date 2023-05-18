@@ -40,14 +40,28 @@ def player_profile() -> list:
 
 player_profiles = player_profile()
 
+# def player_profiles_by_id(id: int) -> dict:
+#     """Gets the bios of players who have been requested by id
+
+#     Args:
+#         ids (int): player id
+
+#     Returns:
+#         dict: dictionary of the selected players' bio 
+#     """
+#     all_bios = player_profiles
+#     for bio in all_bios:
+#         if bio['player_id'] == id:
+#             return bio
+
 def player_profiles_by_name(first_name: str, surname: str) -> dict:
     """Gets the bios of players who have been requested by id
 
     Args:
-        ids (list): list of player ids
+        ids (int): player id
 
     Returns:
-        list: list of the selected players' bios 
+        dict: dictionary of the selected players' bio
     """
     all_bios = player_profiles
     for bio in all_bios:
@@ -176,7 +190,15 @@ def delete_players(first_name: str, surname: str) -> dict:
     for player in players.copy():
         if player.get('first_name') == first_name and player.get('surname') == surname:
             players.remove(player)
-    return f"{first_name} {surname}'s bio has been deleted"
+    return f"{first_name} {surname}'s bio has been deleted!"
 
-# def change_players_team(team: str):
+# def change_players_team(id: int, new_player: dict) -> dict:
+
+#     players = player_profiles
+#     for player in players.copy():
+#         if player.get('player_id') == id:
+            
+#             return updated_player
+
+
     

@@ -6,7 +6,7 @@ app = FastAPI()
 
 @app.get('/')
 async def root():
-    return "Welcome to the NBA 22-23 Season Player Breakdown"
+    return "-- Welcome to the NBA 22-23 Season Player Breakdown --"
 
 @app.get('/players')
 async def players():
