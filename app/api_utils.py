@@ -20,6 +20,7 @@ def create_player_bio_dict(player: pd.DataFrame) -> dict:
         dict: their formatted bio
     """
     return {
+        'name':player['player'],
         'player_id':player['rank'],        
         'position':player['position'],
         'age':player['age'],
@@ -212,6 +213,36 @@ def delete_players(first_name: str, surname: str) -> dict:
 
     return f"{first_name} {surname}'s stats for the 22/23 season have been deleted!"
 
+
+def player_bios(player_profiles: list) -> list:
+    """Collects the bios for every player in the NBA
+
+    Args: 
+        player_profiles (list): the season overview of every player
+    Returns:
+        list: the bio of every player
+    """
+    return [player.get(player_name(player)).get('bio') for player in player_profiles]
+
+
+all_bios = player_bios(player_profiles)
+
+
+def player_bio_by_name(first_name: str, surname: str) -> dict:
+    """Finds the bio of the player who's name
+    matches
+
+    Args:
+        first_name (str): the requested player's first name
+        surname (str): the requested player's surname
+    Returns:
+        dict: the bio of the requested player
+    """
+    players = player_profiles
+
+    for player in players:
+        if name_matches(first_name, surname, player):
+            return player.get(player_name(player)).get('bio')
 
 def player_offense_stats(player_profiles: list) -> list:
     """Collects just the offensive stats of every active NBA
